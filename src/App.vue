@@ -1,15 +1,14 @@
 <template>
-  <MainNav></MainNav>
+  <main-nav></main-nav>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import MainNav from "./components/MainNav.vue";
+
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
     MainNav,
   },
 };

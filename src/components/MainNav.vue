@@ -11,40 +11,43 @@
               <a href="" class="flex items-center h-full py-2.5">{{ menuItem }}</a>
             </li>
 
-            <!-- 
-            <li class="h-full ml-9">
-              <a href="" class="flex items-center h-full py-2.5">Life at Bobo Corp</a>
-            </li>
-
-            <li class="h-full ml-9">
-              <a href="" class="flex items-center h-full py-2.5">How we hire</a>
-            </li>
-
-            <li class="h-full ml-9">
-              <a href="" class="flex items-center h-full py-2.5">Students</a>
-            </li>
-
-            <li class="h-full ml-9">
-              <a href="" class="flex items-center h-full py-2.5">Jobs</a>
-            </li> -->
-
-
           </ul>
         </nav>
 
+
+        <div class="flex items-center h-full ml-auto">
+          <profile-image v-if="isLoggedIn" />
+          <action-button v-else v-on:click="loginUser" />
+        </div>
+
       </div>
+
     </div>
   </header>
 </template>
 
 <script>
+import ActionButton from "@/components/ActionButton.vue";
+import ProfileImage from '@/components/ProfileImage.vue';
+
+
 export default {
   name: "Main Nav",
+  components: {
+    ActionButton,
+    ProfileImage,
+  },
   data() {
     return {
       company: "Bobo Careers",
       url: "http://careers.google.com",
       menuItems: ["Teams", "Locations", "Life at Bobo Corp", "How we hire", "Students", "Jobs"],
+      isLoggedIn: false,
+    }
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true;
     }
   }
 };
